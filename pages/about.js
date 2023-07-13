@@ -13,12 +13,24 @@ const about = () => {
   return (
     <div className='w-full min-h-screen flex flex-col md:flex-row'>
       {sideMenu ? (
-        <div className='w-full max-w-xs min-h-screen absolute top-24 left-0 bg-black text-white flex justify-between items-center transition-all ease-in duration-300'>
+        <div className={!sideMenu ? 'w-full max-w-xs min-h-screen absolute top-24 left-[-100%] bg-black text-white flex justify-between items-center transition-all ease-in duration-300' : 'w-full max-w-xs min-h-screen absolute top-24 left-0 bg-black text-white flex justify-between items-center transition-all ease-in duration-300'}>
           <ul className='min-h-screen flex flex-col justify-center gap-8 ml-2 text-xl font-mono'>
-            <li onClick={() => setOpenTab(1)}>HOME</li>
-            <li onClick={() => setOpenTab(2)}>ME</li>
-            <li onClick={() => setOpenTab(3)}>HOBBIES</li>
-            <li onClick={() => setOpenTab(4)}>FOODS</li>
+            <li onClick={() => {
+              setOpenTab(1)
+              handleSide()
+            }}>HOME</li>
+            <li onClick={() => {
+              setOpenTab(2)
+              handleSide()
+            }}>ME</li>
+            <li onClick={() => {
+              setOpenTab(3)
+              handleSide()
+            }}>HOBBIES</li>
+            <li onClick={() => {
+              setOpenTab(4)
+              handleSide()
+            }}>FOODS</li>
           </ul>
           <AiOutlineClose onClick={handleSide} size={30} />
         </div>
@@ -27,28 +39,28 @@ const about = () => {
       <div className='flex-1'>
         {openTab === 1 && 
         <div className='w-full min-h-screen'>
-          <div className='w-full max-w-5xl min-h-screen mx-auto shadow-lg shadow-gray-700/50'>
+          <div className='w-full max-w-5xl min-h-screen mx-auto '>
             <h1>Home CONTENT GOES HERE</h1>
           </div>
         </div>
         }
         {openTab === 2 && 
         <div className='w-full min-h-screen'>
-          <div className='w-full max-w-5xl min-h-screen mx-auto shadow-lg shadow-gray-700/50'>
+          <div className='w-full max-w-5xl min-h-screen mx-auto '>
             <h1>Me CONTENT GOES HERE</h1>
           </div>
         </div>
         }
         {openTab === 3 && 
         <div className='w-full min-h-screen'>
-          <div className='w-full max-w-5xl min-h-screen mx-auto shadow-lg shadow-gray-700/50'>
+          <div className='w-full max-w-5xl min-h-screen mx-auto '>
             <h1>Hobbies CONTENT GOES HERE</h1>
           </div>
         </div>
         }
         {openTab === 4 && 
         <div className='w-full min-h-screen'>
-          <div className='w-full max-w-5xl min-h-screen mx-auto shadow-lg shadow-gray-700/50'>
+          <div className='w-full max-w-5xl min-h-screen mx-auto '>
             <h1>Skill CONTENT GOES HERE</h1>
           </div>
         </div>
@@ -56,12 +68,9 @@ const about = () => {
         <div className='md:hidden w-full h-fit items-center fixed bg-black text-gray-500 bottom-0 left-0 py-4 px-2'>
           <ul className='flex justify-around gap-4 ml-2 text-xl font-mono text-center'>
               <li onClick={() => setOpenTab(1)}>HOME</li>
-              <li>|</li>
               <li onClick={() => setOpenTab(2)}>ME</li>
-              <li>|</li>
               <li onClick={() => setOpenTab(3)}>HOBBIES</li>
-              <li>|</li>
-              <li onClick={() => setOpenTab(4)}>FOODS</li>
+              <li onClick={() => setOpenTab(4)}>SKILL</li>
           </ul>
         </div>
       </div>
